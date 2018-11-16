@@ -1,0 +1,39 @@
+#content{
+    width: 80%;
+    height: 80%;
+}
+#header{
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: top;
+}
+#content h1{
+    margin-right: 155px;
+}
+#content h2{
+    margin-right: 155px;
+}
+#newpartsubmit{
+    background-color: #282B78;
+    color:white;
+    font-size: 16px;
+}
+#searchbutt{
+    background-color: #282B78;
+    margin-left: 50px;
+    color: white;
+    font-size: 16px;
+}
+#partsModal{
+    z-index: 9999
+}
+#content{
+    z-index:0;
+}
+.form-group{
+    margin-top:-15px;
+}
+#submit_button{
+    background-color: #282B78;
+    color: white;
+}

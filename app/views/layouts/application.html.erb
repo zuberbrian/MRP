@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WenzlauMRP</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <%= csrf_meta_tags %>
+  <style>
+    #logoutform{
+      position: absolute;
+      right: 3px;
+      top: 3px;
+    }
+    #content{
+      display: inline-block;
+      vertical-align: top;
+    }
+    #sidebar{
+      width: 170px;
+      display: inline-block;
+      text-align: center;
+      margin-top: -95px;
+      margin-left: -20px;
+    } 
+    #sidebar a{
+      background-color: #282B78;
+      color: white;
+      font-size: 22px;
+      display: inline-block;
+      margin-top: -4px;
+      height: 120px;
+      width: 140px;
+      border-radius: 5px;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    #sidebar p{
+      color:white;
+      font-size: 22px;
+      position: relative;
+      transform: translateY(-50%);
+      margin:0;
+    }
+    #headtag{
+      width: 500px;
+      margin: 0 auto;
+      margin-top: -30px;
+    }
+  </style>
+</head>
+<body>
+<% if flash[:errors] %>
+<% flash[:errors].each do |e| %>
+    <%= e %>
+  <% end %>
+<% end %>
+<% if current_user %>
+  <form action="/users/destroy" id="logoutform" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Log Out">
+  </form>
+<% end %>
+<div id="wrapper">
+    <div id="headtag"><a href="/dashboard"><%= image_tag("logostack.png", :size => "340x100", :alt => "Wenzlau Logo") %></a></div>
+    <div id="sidebar">
+        <a href="/ActionItems" style="text-decoration: none"><p>Action Items</p></a>
+        <a href="/SalesOrders" style="text-decoration: none"><p>Sales Orders</p></a>
+        <a href="/PurchaseOrders" style="text-decoration: none"><p>Purchase Orders</p></a>
+        <a href="/WorkOrders" style="text-decoration: none"><p>Work Orders</p></a>
+        <a href="/Parts" style="text-decoration: none"><p>Parts</p></a>
+        <a href="/Documents" style="text-decoration: none"><p>Documents</p></a>
+    </div>
+    <%= yield %>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<div id="content">
+    <div id="header">
+        <h1>Purchase Orders</h1>
+    </div>
+    <!--Search Field-->
+    <form action="/purchaseorders" method="post">
+        <fieldset id="actions">
+            <legend>Search By:</legend>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            PO Number: <input type="text" name="partnumber" size="20">
+            &nbsp;&nbsp;
+            Sales Order: <input type="text" name="salesorder" size="20">
+            &nbsp;&nbsp;
+            Supplier: <input type="text" name="nomenclature" size="30">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="newpartsubmit" type="submit" class="btn" value="Search">
+        </fieldset>
+    </form>
+    <hr>
+    <!--Purchase Order List-->
+    <div id="solist">
+        <table id="sotable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Number</td>
+                    <td>Supplier</td>
+                    <td>Sales Order</td>
+                    <td>Description</td>
+                    <td>Ordered Date</td>
+                    <td>Due Date</td>
+                    <td>Expected Date</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @pos.each do |po| %>
+                <tr>
+                    <td><%= po.number %></td>
+                    <td><%= po.Supplier.name %></td>
+                    <td><%= po.SalesOrder_id %></td>
+                    <td><%= po.notes %></td>
+                    <td><%= po.order_date %></td>
+                    <td><%= po.due_date %></td>
+                    <td><%= po.expected_date %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>

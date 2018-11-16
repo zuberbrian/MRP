@@ -1,0 +1,104 @@
+<div id="content">
+    <div id="header">
+        <h1>Parts</h1>
+    </div>
+    <!--Search Field-->
+    <form action="/parts" method="post">
+        <fieldset id="actions">
+            <legend>Search By:</legend>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            Part Number: <input type="text" name="partnumber" size="40">&nbsp;&nbsp;
+            Nomenclature: <input type="text" name="nomenclature" size="60">
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input id="newpartsubmit" type="submit" class="btn" value="Search">
+        </fieldset>
+    </form>
+    <!--Button to trigger Modal-->
+    <button type="button" id="searchbutt" class="btn" data-toggle="modal">
+        Add New Part
+    </button>
+    <!--New Part Modal-->
+    <div class="modal fade" id="partsModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New Part</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    <form id="part_add_form" action="/create_part" method="post">
+                    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+                        <div class="form-group">
+                            <label for="part-name" class="col-form-label">Part Name:</label>
+                            <input type="text" class="form-control" required="required" id="part-name" name="name">
+                        </div>
+                        <div class="form-group">
+                            <label for="part-number" class="col-form-label">Part Number:</label>
+                            <input type="text" class="form-control" required="required" id="part-number" name="part_number">
+                        </div>
+                        <div class="form-group">
+                            <label for="part-price" class="col-form-label">Price:</label>
+                            <input type="text" class="form-control" required="required" id="part-price" name="price">
+                        </div>
+                        <div class="form-group">
+                            <label for="part-lead" class="col-form-label">Lead Time (working days):</label>
+                            <input type="text" class="form-control" required="required" id="part-lead" name="lead_time">
+                        </div>
+                        <div class="form-group">
+                            <label for="part-supplier" class="col-form-label">Supplier:</label>
+                            <select id="part-supplier" name="supplier">
+                                    <option></option> 
+                                <% @suppliers.each do |supplier| %>         
+                                    <option value="<%= supplier.id %>"><%= supplier.name %></option>
+                                <% end %>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="part-notes" class="col-form-label">Notes:</label>
+                            <textarea rows="4" cols="50" class="form-control" id="part-notes" name="notes"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" id="submit_button" form="part_add_form" class="btn">Add Part</button>
+                </div>
+              </div>
+            </div>
+          </div>
+    <hr>
+    <!--Parts List-->
+    <div id="partslist">
+        <table id="partstable" class="table table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Nomenclature</td>
+                    <td>Part Number</td>
+                    <td>Price</td>
+                    <td>Lead Time</td>
+                    <td>Supplier</td>
+                    <td>Notes</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @parts.each do |part| %>
+                <tr>
+                    <td><a href="/Parts/<%= part.id %>" text-decoration="none"><%= part.name %></a></td>
+                    <td><%= part.number %></td>
+                    <td><%= part.price %></td>
+                    <td><%= part.lead_time %></td>
+                    <td><%= part.Supplier.name %></td>
+                    <td><%= part.notes %></td>
+                </tr>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<script>
+     $('#searchbutt').on('click', function () {
+        $('#partsModal2').modal('show')
+        })
+</script>

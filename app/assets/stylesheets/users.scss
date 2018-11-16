@@ -1,0 +1,125 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+    // margin: 0 auto;
+    // text-align: center;
+}
+#logoutform{
+    text-align: right;
+    margin: 5px;
+}
+#head{
+    margin-top: 50px;
+}
+#title{
+    font-size: 42px;
+    font-family: sans-serif;
+}
+#login{
+    margin-top: 50px;
+}
+#loginbox{
+    text-align: center;
+    margin:0 auto;
+    width: 350px;
+    height: 270px;
+    margin-top: 40px;
+    border: 3px #32659C ridge;
+}
+#loginbox form{
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 10px;
+}
+#formin p{
+    font-size: 20px;
+    font-family: sans-serif;
+}
+.formin{
+    font-size: 17px;
+    font-family: sans-serif;
+    width: 300px;
+}
+#submit{
+    width: 150px;
+    height: 30px;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+// dashboard below
+*{
+    margin: 10px;
+} 
+#headtag{
+    width: 500px;
+    margin: 0 auto;
+    margin-top: -30px;
+}
+#sidebar{
+    width: 170px;
+}
+.sidebutt{
+    background-color: #282B78;
+    border: 1px black solid;
+    width: 150px;
+    height: 130px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    margin: 0;
+}
+#sidebar a{
+    background-color: #282B78;
+    color: white;
+    font-size: 22px;
+    display: inline-block;
+    margin-top: -4px;
+    height: 130px;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+#sidebar p{
+    color:white;
+    font-size: 22px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin:0;
+}
+.sidebutt>p{
+    color:white;
+    font-size: 22px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    margin:0;
+}
+#topleft{
+    width:700px;
+    height: 300px;
+    display: inline-block;
+    border: black solid 1px;
+    margin: 0;
+}
+#topright{
+    width: 700px;
+    height: 300px; 
+    display: inline-block;
+    border: black solid 1px;
+    margin: 0;  
+}
+#bottomleft{
+    width: 700px;
+    height: 300px;
+    display: inline-block;
+    border: black solid 1px;
+    margin: 0;
+}
+#bottomright{
+    width: 700px;
+    height: 300px;
+    display: inline-block;
+    border: black solid 1px;
+    margin: 0;
+}
