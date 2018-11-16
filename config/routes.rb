@@ -1,0 +1,16 @@
+Rails.application.routes.draw do
+root to: 'users#login'
+get '/' => 'users#login'
+get '/dashboard' => 'users#dashboard'
+get '/ActionItems' => 'action_items#index'
+get '/SalesOrders' => 'sales_orders#index'
+get '/PurchaseOrders' => 'purchase_orders#index'
+get '/WorkOrders' => 'work_orders#index'
+get '/Parts' => 'parts#index'
+get '/Documents' => 'documents#index'
+get '/Parts/:id' => 'parts#show'
+post '/login' => 'sessions#create'
+post '/create_part' => 'parts#create'
+post '/create_so' => 'sales_orders#create'
+delete '/users/destroy' => 'users#destroy'
+end
