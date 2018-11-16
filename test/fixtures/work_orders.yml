@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  description: MyString
+  SalesOrder_id: 
+  opened_date: 2018-06-25
+  due_date: 2018-06-25
+  expected_date: MyString
+
+two:
+  number: 1
+  description: MyString
+  SalesOrder_id: 
+  opened_date: 2018-06-25
+  due_date: 2018-06-25
+  expected_date: MyString
